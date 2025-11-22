@@ -28,3 +28,10 @@ body { font-family: 'Segoe UI', sans-serif; background: #f8f9fa; }
 .login-form input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 6px; }
 .login-btn { background: #3498db; color: white; padding: 12px; border: none; border-radius: 6px; width: 100%; }
 .error { color: red; font-weight: bold; }
+/* Flight status badges – 全部狀態都靚到爆 */
+.status-OnTime      { background-color: #28a745; color: white; }
+.status-Delayed     { background-color: #fd7e14; color: white; }
+.status-Cancelled   { background-color: #dc3545; color: white; }
+.status-Departed    { background-color: #007bff; color: white; }  /* 藍色 */
+.status-Arrived     { background-color: #20c997; color: white; }  /* 青綠 */
+.status-Holding     { background-color: #6f42c1; color: white; }  /* 紫色 */

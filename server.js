@@ -152,14 +152,28 @@ app.delete('/flights/:flightNumber', requireLogin, async (req, res) => {
 });
 
 // 關鍵：你之前遺漏嘅 Details route（解決 500 error）
+// 改成呢段（加咗 userid 檢查 + 更穩陣）
 app.get('/details', requireLogin, async (req, res) => {
     try {
-        const flight = await db.collection('flights').findOne({ _id: new ObjectId(req.query.id) });
-        if (!flight) return res.render('info', { message: 'Flight not found', user: req.session.user || req.user });
+        const flightId = req.query.id || req.query._id;
+        if (!flightId) return res.render('info', { message: 'No flight ID provided', user: req.session.user || req.user });
+
+        const flight = await db.collection('flights').findOne({ 
+            _id: new ObjectId(flightId),
+            userid: req.session.user.id || req.user?.userId   // 關鍵！確保係呢個 user 嘅 flight
+        });
+
+        if (!flight) {
+            return res.render('info', { 
+                message: 'Flight not found or access denied', 
+                user: req.session.user || req.user 
+            });
+        }
+
         res.render('details', { flight, user: req.session.user || req.user });
     } catch (err) {
-        console.error(err);
-        res.status(500).send('Server Error');
+        console.error('Details error:', err);
+        res.render('info', { message: 'Invalid flight ID', user: req.session.user || req.user });
     }
 });
 

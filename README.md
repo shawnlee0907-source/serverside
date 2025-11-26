@@ -44,6 +44,7 @@
 
 ### Directory Structure
 ```
+<COMP3810SEF><Group 19>
 ├── package.json/
 ├── server.js/  
 ├── public/         # Static assets (CSS, images, JS)

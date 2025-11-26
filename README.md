@@ -10,7 +10,7 @@
 4. Mo Yuen Yi (13175765)
 5. Miao Qin Yin (13218978)
 
-## System Architecture
+## Brief Summary of Server.js
 
 ### Core Features
 - **User Authentication**: Secure registration and login system
@@ -44,7 +44,10 @@
 
 ### Directory Structure
 ```
-├── public/          # Static assets (CSS, images, JS)
+├── package.json/
+├── server.js/  
+├── public/         # Static assets (CSS, images, JS)
+    ├── style.css
 ├── views/           # EJS templates
 │   ├── api-test.ejs
 │   ├── create.ejs
@@ -54,7 +57,6 @@
 │   ├── list.ejs
 │   ├── login.ejs
 │   └── register.ejs
-└── app.js          # Main application file
 ```
 
 ## Application URLs

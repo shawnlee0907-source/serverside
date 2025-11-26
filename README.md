@@ -72,8 +72,8 @@
 
 ### 1. Authentication
 **Demo Account**: 
-- Username: `4321`
-- Password: `4321`
+- Username: `Long`
+- Password: `789`
 
 ### 2. Flight Dashboard
 After login, users can:
